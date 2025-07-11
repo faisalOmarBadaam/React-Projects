@@ -1,0 +1,10 @@
+.active {
+  color: yellow;
+}
+.inactive {
+  color: black;
+}
+.hover-active {
+  color: yellow;
+  opacity: 0.5;
+}
