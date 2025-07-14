@@ -1,10 +1,11 @@
+import QRCodeGenerator from "./assets/Components/QR Code";
 import TreeView from "./assets/Components/tree-view";
-import menus from "./assets/Components/tree-view/data";
 
 function App() {
   return (
     <>
-      <TreeView menus={menus} />
+      {/* <TreeView menus={menus} /> */}
+      <QRCodeGenerator />
     </>
   );
 }
