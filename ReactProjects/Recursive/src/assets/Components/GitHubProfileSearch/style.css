@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+.input-wrapper input {
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: medium;
+}
+.input-wrapper button {
+  height: 35px;
+  padding: 0px 15px;
+}
+.card {
+  border: 1px solid white;
+  margin: 20px 10px;
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+.information p {
+  margin: 10px;
+  text-align: center;
+}
+
+.information span,
+a {
+  margin: 0px 10px;
+  text-align: center;
+}
+.information span {
+  margin: 0px 10px;
+  text-align: center;
+}

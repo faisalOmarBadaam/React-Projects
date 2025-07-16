@@ -4,6 +4,7 @@ import QRCodeGenerator from "./assets/Components/QR Code";
 import ScrollIndicator from "./assets/Components/scroll-indicator";
 import CustomTabs from "./assets/Components/Tabs";
 import TreeView from "./assets/Components/tree-view";
+import ShowGitHubProfile from "./assets/Components/GitHubProfileSearch";
 
 function App() {
   return (
@@ -13,10 +14,8 @@ function App() {
       {/* <DarkMood /> */}
       {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
       {/* <CustomTabs tabsContent={tabs} /> */}
-      <Model
-        header={<div>niceeeee</div>}
-        body={<div>hiiii</div>}
-        footer={<h1>diiiiiiiiiiiiiiii</h1>}
+      <ShowGitHubProfile
+        url={"https://api.github.com/users/faisalOmarBadaam"}
       />
     </>
   );
