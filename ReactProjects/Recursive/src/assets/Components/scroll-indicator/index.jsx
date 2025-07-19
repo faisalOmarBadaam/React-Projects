@@ -1,31 +1,32 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import useFetchApi from "./fetchData";
-import "./scroll.css";
 export default function ScrollIndicator({ url }) {
   const { data: Products, isLoading, error } = useFetchApi(url);
-  const [scrollPercentage, setScrollPercentage] = useState(0);
-  useEffect(() => {
-    function handleScrollEvent() {
-      const howMuchScrolled =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      setScrollPercentage((howMuchScrolled / height) * 100);
-    }
-    window.addEventListener("scroll", handleScrollEvent);
+  const ref = useRef();
+  const refSection1 = useRef();
+  const refSection2 = useRef();
+  const refSection3 = useRef();
 
-    return () => {
-      window.removeEventListener("scroll", () => {});
-    };
-  }, [scrollPercentage]);
+  function handleToDown() {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  }
+  function handleToUp() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+  function handleToSection(refSection) {
+    refSection.current.scrollIntoView({ behavior: "smooth" });
+  }
   return (
     <div>
       {isLoading ? <div>loading the data</div> : null}
 
       {error !== null ? <div>something Wrong</div> : null}
-      <div className="container">
-        <div className="top-container">
+      <div style={{ height: "100vh", textAlign: "center" }}>
+        {/* <div className="top-container">
           <h1>Custom scroll indicator</h1>
 
           <div className="scroll-progress-tracking-container">
@@ -34,14 +35,87 @@ export default function ScrollIndicator({ url }) {
               style={{ width: `${scrollPercentage}%` }}
             ></div>
           </div>
+        </div> */}
+        <div>
+          <button onClick={handleToDown}>To Bottom</button>
+          <button
+            onClick={() => {
+              handleToSection(refSection1);
+            }}
+          >
+            To section 1
+          </button>
+          <button
+            onClick={() => {
+              handleToSection(refSection2);
+            }}
+          >
+            To section 2
+          </button>
+          <button
+            onClick={() => {
+              handleToSection(refSection3);
+            }}
+          >
+            To section 3
+          </button>
         </div>
-        <div className="data-container">
-          {Products && Products.length > 0 ? (
-            Products.map((item, index) => <p key={index}>{item.title}</p>)
-          ) : (
-            <div>there is no products to show</div>
-          )}
+        <div
+          ref={refSection1}
+          className="thirdSection"
+          style={{ backgroundColor: "red" }}
+        >
+          <div
+            style={{
+              margin: "50px",
+              textAlign: "center",
+            }}
+          >
+            {Products && Products.length > 0 ? (
+              Products.map((item, index) => <p key={index}>{item.title}</p>)
+            ) : (
+              <div>there is no products to show</div>
+            )}
+          </div>
         </div>
+        <div
+          ref={refSection2}
+          className="secondSection"
+          style={{ backgroundColor: "green" }}
+        >
+          <div
+            style={{
+              margin: "50px",
+              textAlign: "center",
+            }}
+          >
+            {Products && Products.length > 0 ? (
+              Products.map((item, index) => <p key={index}>{item.title}</p>)
+            ) : (
+              <div>there is no products to show</div>
+            )}
+          </div>
+        </div>
+        <div
+          ref={refSection3}
+          className="firstSection"
+          style={{ backgroundColor: "blue" }}
+        >
+          <div
+            style={{
+              margin: "50px",
+              textAlign: "center",
+            }}
+          >
+            {Products && Products.length > 0 ? (
+              Products.map((item, index) => <p key={index}>{item.title}</p>)
+            ) : (
+              <div>there is no products to show</div>
+            )}
+          </div>
+        </div>
+        <div ref={ref}></div>
+        <button onClick={handleToUp}>to up</button>
       </div>
     </div>
   );

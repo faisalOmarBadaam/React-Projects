@@ -1,0 +1,47 @@
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 0 16px;
+  font-family: Arial, sans-serif;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+.data-container {
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: black;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.data-container p {
+  margin: 0;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.data-container p:hover {
+  background-color: #520707;
+}
+
+.waiting,
+.error {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  padding: 20px 0;
+}
