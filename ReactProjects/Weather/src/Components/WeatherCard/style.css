@@ -1,0 +1,35 @@
+.container {
+  background-color: rgb(36, 205, 149);
+  height: 400px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  border: 1px black solid;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+p {
+  margin: 5px;
+  /* font-size: 14px; */
+  font-weight: 500;
+}
+
+.city-name {
+  font-size: 35px;
+  font-weight: 700;
+}
+.date {
+  font-style: italic;
+  letter-spacing: 1px;
+}
+.temp {
+  font-size: 50px;
+  font-weight: 700;
+}
+.extra-info {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 100px;
+}
